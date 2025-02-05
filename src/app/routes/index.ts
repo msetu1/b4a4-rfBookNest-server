@@ -5,13 +5,12 @@ const router = Router();
 const routes = [
   {
     path: '/auth',
-    route: ,
+    route: AuthRoutes,
   },
   {
     path: '/product',
-    route: ,
+    route: productRoutes,
   },
- 
 ];
 
 routes.forEach((route) => router.use(route.path, route.route));
