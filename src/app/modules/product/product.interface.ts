@@ -5,6 +5,8 @@ export interface TProduct {
   price: string;
   category: string;
   imageUrl: string;
+  rating: number;
+  bookDiscount: number;
   authorName: string;
   authorEmail: string;
   authorImageUrl: string;
