@@ -1,5 +1,7 @@
 # Book Shop Application 📚
 
+This is a full-stack MERN e-commerce platform for buying books, featuring role-based authentication for admins and customers. Admins manage products and orders, while customers can browse and purchase books securely. Integrated payment gateways ensure smooth transactions, with a dynamic React frontend and scalable (MongoDB, Express,Node) backend.
+
 ## Hi !
 
 ### This is Setu AKther
@@ -11,6 +13,30 @@ Live Link:
 ```
 
 ```
+
+## Features
+
+### Core Functionalities
+
+Role-Based Authentication:
+
+- User registration/login with JWT
+- Admin dashboard for product/order management
+
+📖 Book Management
+
+- Browse books with filters (price, category)
+- Search by title/author/category
+- Detailed product view with "Buy Now" option
+
+### Order Management
+
+-
+
+## Technical Used
+
+- Node / Express
+- mongodb / Mongoose
 
 ## Installation:
 
