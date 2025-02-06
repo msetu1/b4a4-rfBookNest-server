@@ -22,7 +22,7 @@ const loginUser = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatusCodes.OK,
     success: true,
-    message: 'logged in successfully!',
+    message: 'Logged in successfully!',
     data: {
       accessToken,
     },
@@ -35,7 +35,7 @@ const AllUsers = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatusCodes.OK,
     success: true,
-    message: 'User infomation retrived successfully',
+    message: 'User information retrieved successfully',
     data: result,
   });
 });
