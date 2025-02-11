@@ -9,11 +9,10 @@ const productSchema = new Schema<TProduct>({
   price: { type: String, required: true },
   category: { type: String, required: true },
   imageUrl: { type: String, required: true },
-  rating: { type: Number, required: true },
-  bookDiscount: { type: Number, required: true },
   authorName: { type: String, required: true },
   authorEmail: { type: String, required: true },
-  authorImageUrl: { type: String, required: true },
+  rating: { type: Number },
+  bookDiscount: { type: Number, required: true },
   isAvailable: { type: Boolean, required: true },
   isDeleted: { type: Boolean, default: false },
 });

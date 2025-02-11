@@ -39,6 +39,7 @@ i. **Admin**:
   Admin and User roles must be differentiated and secured.
 
 4. **Blog API**:
+
 - Publicly accessible API for:
   - **Search**: Find blogs by keywords in the title or content.
   - **Sort**: Sort blogs by fields like `createdAt` or `title`.
@@ -46,9 +47,12 @@ i. **Admin**:
 
 ---
 
-# Authentication 
+# Authentication
+
 ---
-###  Register User
+
+### Register User
+
 ---
 
 Endpoint : POST **/api/auth/register**
@@ -56,6 +60,7 @@ Endpoint : POST **/api/auth/register**
 Description: Registers a new user with the platform. It validates user data and saves it to the database.
 
 example
+
 ```
 {
   "name": "John Doe",
@@ -64,8 +69,8 @@ example
 }
 ```
 
+### Login User
 
-###  Login User
 ---
 
 Endpoint : POST **/api/auth/login**
@@ -73,6 +78,7 @@ Endpoint : POST **/api/auth/login**
 Description: Authenticates a user with their email and password and generates a JWT token.
 
 example
+
 ```
 {
   "email": "john@example.com",
@@ -80,10 +86,12 @@ example
 }
 ```
 
+# Authentication
 
-# Authentication 
 ---
-###  Create Blog
+
+### Create Blog
+
 ---
 
 Endpoint : POST **/api/blogs**
@@ -91,13 +99,16 @@ Endpoint : POST **/api/blogs**
 Description: Allows a logged-in user to create a blog by providing a title and content.
 
 example
+
 ```
 {
   "title": "My First Blog",
   "content": "This is the content of my blog."
 }
 ```
-###  Update Blog
+
+### Update Blog
+
 ---
 
 Endpoint : PATCH **/api/blogs/:id**
@@ -105,21 +116,24 @@ Endpoint : PATCH **/api/blogs/:id**
 Description: Allows a logged-in user to update their own blog by its ID.
 
 example
+
 ```
 {
   "title": "Updated Blog Title",
   "content": "Updated content."
 }
 ```
-###   Delete Blog
+
+### Delete Blog
+
 ---
 
 Endpoint : DELETE **/api/blogs/:id**
 
 Description: Allows a logged-in user to delete their own blog by its ID.
 
+### Get All Blogs (Public)
 
-###  Get All Blogs (Public)
 ---
 
 Endpoint : PATCH **/api/blogs**
@@ -133,23 +147,26 @@ Description: Provides a public API to fetch all blogs with options for searching
 - sortOrder: Defines the sorting order. Accepts values asc (ascending) or desc (descending). (e.g., sortOrder=desc).
 - filter: Filter blogs by author ID (e.g., author=authorId).
 
-
 **Example Request URL:**
+
 ```
 /api/blogs?search=technology&sortBy=createdAt&sortOrder=desc&filter=60b8f42f9c2a3c9b7cbd4f18
 ```
 
-
 # Admin Actions
+
 ---
 
 ### Block User
+
 ---
 
 Endpoint : PATCH **/api/admin/users/:userId/block**
 
 Description: Allows an admin to block a user by updating the isBlocked property to true .
+
 ### Delete Blog
+
 ---
 
 Endpoint : DELETE **/api/admin/blogs/:id**
@@ -157,6 +174,7 @@ Endpoint : DELETE **/api/admin/blogs/:id**
 Description: Allows an admin to delete any blog by its ID.
 
 ### Types of Errors Handled
+
 - Zod Validation Error (ZOD_ERROR): Errors arising from invalid data inputs based on Zod schema validation.
 - Not Found Error (NOT_FOUND_ERROR): When requested resources (e.g., a user, item, or page) are not found.
 - Validation Error (VALIDATION_ERROR): General validation errors (e.g., incorrect data format, missing required fields).

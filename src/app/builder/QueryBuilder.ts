@@ -15,7 +15,7 @@ class QueryBuilder<T> {
   addSearch(searchableFields: string[]): this {
     if (this?.query?.search) {
       const searchTerm = this.query.search;
-      const regex = new RegExp(searchTerm, 'i');    
+      const regex = new RegExp(searchTerm, 'i');
       this.queryModel = this.queryModel.where({
         $or: searchableFields.map((field) => ({ [field]: regex })),
       });
@@ -29,20 +29,19 @@ class QueryBuilder<T> {
     // exclude fields
     const excludeQuery: string[] = [
       'search',
-      "sortBy",
-      "sortOrder",
+      'sortBy',
+      'sortOrder',
       'page',
       'limit',
       'fields',
     ];
-;
     excludeQuery.forEach((field) => delete filter[field]);
-    if(filter?.filter){
-
-      this.queryModel = this.queryModel.find({author:filter?.filter} as FilterQuery<T>);
+    if (filter?.filter) {
+      this.queryModel = this.queryModel.find({
+        author: filter?.filter,
+      } as FilterQuery<T>);
     }
-    
-  
+
     return this;
   }
   // add pagination to query

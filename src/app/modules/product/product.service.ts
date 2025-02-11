@@ -19,19 +19,25 @@ const singleBook = async (id: string) => {
   return result;
 };
 
-// update book
+// update book service
 const updateBook = async (id: string, payload: Partial<TProduct>) => {
-  if (!payload) {
+  if (!id) {
+    throw new Error('Book ID is required.');
+  }
+
+  if (!payload || Object.keys(payload).length === 0) {
     throw new Error('Update payload is missing.');
   }
 
-  // Prepare the updated data
-  const modifiedUpdatedData: Record<string, unknown> = { ...payload };
-
-  // Update the book (assuming MongoDB example, modify as needed)
-  const result = await Product.findByIdAndUpdate(id, modifiedUpdatedData, {
-    new: true,
+  // Update the book in the database
+  const result = await Product.findByIdAndUpdate(id, payload, {
+    new: true, // Returns the updated document
+    runValidators: true, // Ensures validation rules are applied
   });
+
+  if (!result) {
+    throw new Error('Book not found or update failed.');
+  }
 
   return result;
 };

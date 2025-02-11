@@ -40,35 +40,23 @@ const singleBook = catchAsync(async (req, res) => {
 // update book controller
 const updateBook = catchAsync(async (req, res): Promise<void> => {
   const { id } = req.params;
-  const book = req.body?.book;
+  const bookUpdates = req.body?.book;
 
-  // check data missing ki na
-  if (!book) {
-    res.status(400).json({
+  if (!bookUpdates) {
+    res.status(httpStatusCodes.BAD_REQUEST).json({
       success: false,
       message: 'Update payload is missing.',
     });
     return;
   }
 
-  // the title is provided and update it
-  const { title, ...otherFields } = book;
-
-  const modifiedUpdatedData: Record<string, unknown> = { ...otherFields };
-
-  if (title) {
-    // If the title exists in the request, update it.
-    modifiedUpdatedData['title'] = title;
-  }
-
-  // Call service to update book data
-  const result = await ProductServices.updateBook(id, modifiedUpdatedData);
+  const updatedBook = await ProductServices.updateBook(id, bookUpdates);
 
   sendResponse(res, {
     statusCode: httpStatusCodes.OK,
     success: true,
-    message: 'Book data updated successfully',
-    data: result,
+    message: 'Book updated successfully.',
+    data: updatedBook,
   });
 });
 
