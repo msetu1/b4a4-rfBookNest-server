@@ -47,7 +47,10 @@ const deleteBook = catchAsync(async (req, res) => {
   });
 });
 const updateBook = catchAsync(async (req, res) => {
-  const result = await ProductServices.updateBook(req.body.BookId,req.body.bookInfo);
+  const result = await ProductServices.updateBook(
+    req.body.BookId,
+    req.body.bookInfo,
+  );
   sendResponse(res, {
     statusCode: httpStatusCodes.OK,
     success: true,

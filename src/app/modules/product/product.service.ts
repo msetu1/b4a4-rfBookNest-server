@@ -24,7 +24,7 @@ const deleteBook = async (id: string) => {
   return result;
 };
 const updateBook = async (id: string, bookInfo: Partial<TProduct>) => {
-  const result = await Product.findByIdAndUpdate(id, { ...bookInfo});
+  const result = await Product.findByIdAndUpdate(id, { ...bookInfo });
   return result;
 };
 
