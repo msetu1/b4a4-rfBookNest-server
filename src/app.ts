@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import router from './app/routes';
 import stripe from './app/modules/payment/stripe';
+import { orderRoutes } from './app/modules/order/order.route';
 
 const app: Application = express();
 
@@ -23,6 +24,7 @@ app.use(bodyParser.json());
 
 // application route
 app.use('/api', router);
+app.use('/orders', orderRoutes);
 
 app.post('/create-payment-intent', async (req, res) => {
   const { price } = req.body;
