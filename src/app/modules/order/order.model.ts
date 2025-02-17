@@ -1,8 +1,8 @@
 import mongoose, { model } from 'mongoose';
-import { TOrder } from './payment.interface';
+import { TOrder } from './order.interface';
 
 // Product Schema
-const productSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -57,7 +57,7 @@ const productSchema = new mongoose.Schema({
   },
 });
 // UserInfo Schema
-const userInfoSchema = new mongoose.Schema({
+const UserInfoSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -69,7 +69,7 @@ const userInfoSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
-    enum: ['user', 'admin'], // Add roles as needed
+    enum: ['user', 'admin'],
   },
   iat: {
     type: Number,
@@ -84,7 +84,7 @@ const userInfoSchema = new mongoose.Schema({
 // Order Schema
 const OrderSchema = new mongoose.Schema({
   product: {
-    type: productSchema,
+    type: ProductSchema,
     required: true,
   },
   paidStatus: {
@@ -97,7 +97,7 @@ const OrderSchema = new mongoose.Schema({
   },
   orderStatus: { type: String, default: 'pending' },
   userInfo: {
-    type: userInfoSchema,
+    type: UserInfoSchema,
     required: true,
   },
 });

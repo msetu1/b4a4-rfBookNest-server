@@ -1,4 +1,4 @@
-// Types
+// Order Types
 interface Product {
   _id: string;
   title: string;
@@ -7,10 +7,10 @@ interface Product {
   price: string;
   category: string;
   imageUrl: string;
-  rating?: number;
-  bookDiscount: number;
   authorName: string;
   authorEmail: string;
+  rating?: number;
+  bookDiscount: number;
   isAvailable: boolean;
   isDeleted: boolean;
   __v: number;
