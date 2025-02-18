@@ -15,6 +15,7 @@ interface Product {
   isDeleted: boolean;
   __v: number;
 }
+
 interface UserInfo {
   name: string;
   email: string;
