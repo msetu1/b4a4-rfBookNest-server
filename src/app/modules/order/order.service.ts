@@ -7,63 +7,44 @@ const createOrder = async (orderData: TOrder) => {
   return result;
 };
 
-// const adminOrderData = async (email: string) => {
-//   return await Order.find({
-//     paidStatus: true,
-//     'product.authorEmail': email,
-//   });
-// };
+const adminOrderData = async (email: string) => {
+  return await Order.find({
+    paidStatus: true,
+    'product.authorEmail': email,
+  });
+};
 
-// const userOrderData = async (email: string) => {
-//   return await Order.find({
-//     paidStatus: true,
-//     'userInfo.email': email,
-//   });
-// };
+const userOrderData = async (email: string) => {
+  return await Order.find({
+    paidStatus: true,
+    'userInfo.email': email,
+  });
+};
 
-// const acceptOrder = async (transactionId: string) => {
-//   const order = await Order.findOneAndUpdate(
-//     { transactionId },
-//     { orderStatus: 'accepted' },
-//     { new: true },
-//   );
+const acceptOrder = async (id: string) => {
+  const result = await Order.findByIdAndUpdate(id, {
+    orderStatus: 'accepted',
+  });
+  return result;
+};
 
-//   if (!order) {
-//     throw new Error('Order not found');
-//   }
+const cancelOrder = async (id: string) => {
+  const result = await Order.findByIdAndUpdate(id, {
+    orderStatus: 'canceled',
+  });
+  return result;
+};
 
-//   return order;
-// };
-
-// const cancelOrder = async (transactionId: string) => {
-//   const order = await Order.findOneAndUpdate(
-//     { transactionId },
-//     { orderStatus: 'canceled' },
-//     { new: true },
-//   );
-
-//   if (!order) {
-//     throw new Error('Order not found');
-//   }
-
-//   return order;
-// };
-
-// const deleteOrder = async (transactionId: string) => {
-//   const order = await Order.findOneAndDelete({ transactionId });
-
-//   if (!order) {
-//     throw new Error('Order not found');
-//   }
-
-//   return order;
-// };
+const deleteOrder = async (id: string) => {
+  const result = await Order.findByIdAndDelete(id);
+  return result;
+};
 
 export const OrderService = {
   createOrder,
-  // adminOrderData,
-  // userOrderData,
-  // acceptOrder,
-  // cancelOrder,
-  // deleteOrder,
+  adminOrderData,
+  userOrderData,
+  acceptOrder,
+  cancelOrder,
+  deleteOrder,
 };
