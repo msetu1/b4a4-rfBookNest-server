@@ -82,8 +82,6 @@ const cancelOrder = catchAsync(async (req, res) => {
 const removeOrder = catchAsync(async (req, res) => {
   const result = await OrderService.deleteOrder(req.body.id);
 
-  console.log('id', req.body.id);
-
   sendResponse(res, {
     statusCode: httpStatusCodes.OK,
     success: true,

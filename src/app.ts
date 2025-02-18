@@ -30,28 +30,8 @@ app.use(bodyParser.json());
 app.use('/api', router);
 app.use('/orders', orderRoutes);
 
-// app.post('/create-payment-intent', async (req, res) => {
-//   const { price } = req.body;
-//   console.log(price);
-//   const priceInCent = parseFloat(price) * 100;
-//   if (!price || priceInCent < 1) return;
-
-//   // generate client secret
-//   const { client_secret } = await stripe.paymentIntents.create({
-//     amount: priceInCent,
-//     currency: 'usd',
-//     automatic_payment_methods: {
-//       enabled: true,
-//     },
-//   });
-//   console.log(client_secret);
-//   //send client secret as response
-//   res.send({ clientSecret: client_secret });
-// });
-
 app.post('/create-payment-intent', async (req, res) => {
   const { price } = req.body;
-  console.log(price);
 
   // Convert the price to cents and round it to the nearest integer
   const priceInCent = Math.round(parseFloat(price) * 100);
@@ -66,8 +46,6 @@ app.post('/create-payment-intent', async (req, res) => {
       enabled: true,
     },
   });
-
-  console.log(client_secret);
 
   // Send client secret as response
   res.send({ clientSecret: client_secret });

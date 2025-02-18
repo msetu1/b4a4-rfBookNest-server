@@ -47,11 +47,45 @@ i. **Admin**:
 
 ---
 
-# Authentication
+### Core Functionalities
 
----
+- **🔐 Role-Based Authentication**
 
-### Register User
+  - User registration/login with JWT
+  - Admin dashboard for product/order management
+  - Protected routes for checkout/dashboard
+
+- **📖 Book Management**
+
+  - Browse books with filters (price, category)
+  - Search by title/author/category
+  - Detailed product view with "Buy Now" option
+
+- **💰 Order System**
+  - Stock validation during checkout
+  - Stripe payment gateway integration
+  - Order history tracking
+
+## Tech Stack 💻
+
+## Technology Stack 🔧
+
+**Frontend**  
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-blueviolet)
+![React](https://img.shields.io/badge/React-blue)
+![Redux](https://img.shields.io/badge/Redux_Toolkit-red)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue)
+![Ant Design](https://img.shields.io/badge/Ant_Design-%230072f6)
+
+**Backend**  
+![TypeScript](https://img.shields.io/badge/TypeScript-blue)
+![Node.js](https://img.shields.io/badge/Node.js-green)
+![Express](https://img.shields.io/badge/Express-lightgrey)
+![MongoDB](https://img.shields.io/badge/MongoDB-green)
+![JWT](https://img.shields.io/badge/JWT-blue)
+
+**Payment Gateway**  
+![@stripe/stripe-js](https://www.npmjs.com/package/@stripe/stripe-js)
 
 ---
 
